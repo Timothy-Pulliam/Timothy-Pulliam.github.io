@@ -1,0 +1,388 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Terminology &mdash; Machine Learning Book  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Linear Regression" href="linearregression.html" />
+    <link rel="prev" title="Basic Statistics" href="statistics_basics.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Machine Learning Book
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Statistics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statistics_basics.html">Basic Statistics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Machine Learning</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Terminology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linearregression.html">Linear Regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="knearestneighbors.html">K Nearest Neighbors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Machine Learning Book</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Terminology</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/terminology.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="terminology">
+<h1>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline">¶</a></h1>
+<dl>
+<dt>Sample</dt><dd><p>A particular instance of data. For example, one email, one customer, etc.
+Below a dataset is shown with four different ways of representing a sample.</p>
+<table class="docutils align-center" id="id1">
+<caption><span class="caption-text">Dataset</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Sample #</p></th>
+<th class="head"><p>Feature 1</p></th>
+<th class="head"><p>Feature 2</p></th>
+<th class="head"><p>Feature 3</p></th>
+<th class="head"><p>Label</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sample 1</p></td>
+<td><p><span class="math notranslate nohighlight">\(x_{11}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_{12}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_{13}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(y_1\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Sample 2</p></td>
+<td><p><span class="math notranslate nohighlight">\(x_{21}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_{22}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_{23}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(y_2\)</span></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vdots\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Sample n</p></td>
+<td><p><span class="math notranslate nohighlight">\(x_{n1}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_{n2}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(x_{n3}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(y_n\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id2">
+<caption><span class="caption-text">Email Dataset</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Email Subjects</p></th>
+<th class="head"><p>SMTP Server Source IP Address</p></th>
+<th class="head"><p>Email Body Content</p></th>
+<th class="head"><p>Email Spam or Not Spam</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>This one weird trick!</p></td>
+<td><p>10.5.6.7</p></td>
+<td><p>spam, spam spamity spam!</p></td>
+<td><p>spam</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-center" id="id3">
+<caption><span class="caption-text">Advertisement Dataset</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>TV Advertisement ($s)</p></th>
+<th class="head"><p>Radio Advertisement ($s)</p></th>
+<th class="head"><p>Newspaper Advertisement ($s)</p></th>
+<th class="head"><p>Sales ($1000s)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>500</p></td>
+<td><p>400</p></td>
+<td><p>150</p></td>
+<td><p>20</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>Feature</dt><dd><p>A feature is an input variable describing the data. We will usually have multiple
+features for a sample. We write the features as a vector <span class="math notranslate nohighlight">\(\vec{x_i} = (x_{i1}, x_{i2}, \ldots, x_{im})\)</span>
+where <span class="math notranslate nohighlight">\(\vec{x_i}\)</span> is the feature vector of the ith sample. Each sample has <cite>m</cite>
+features</p>
+<p>Thus we can write a feature matrix which contains all of the samples like so</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}X = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \\ \end{bmatrix} =
+\begin{bmatrix} x_{11} &amp; x_{12} &amp; \ldots &amp; x_{1m} \\
+                x_{21} &amp; x_{22} &amp; \ldots &amp; x_{2m} \\
+                \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+                x_{n1} &amp; x_{n2} &amp; \ldots &amp; x_{nm} \\
+ \end{bmatrix}\end{split}\]</div>
+<p>If our Model was to classify customers based on their purchasing habits, we might use the following features</p>
+<ul class="simple">
+<li><p>clothing size</p></li>
+<li><p>customer clicks on description</p></li>
+<li><p>customer adds to cart</p></li>
+<li><p>Time of day purchase was made</p></li>
+<li><p>Items that were looked at, but not purchased</p></li>
+<li><p>amount of money spent</p></li>
+</ul>
+<p>In this way, we could group similar customers together to provide them items
+which they would be most interested in. This process is known as <a class="reference external" href="https://en.wikipedia.org/wiki/Feature_engineering">Feature Engineering</a>
+and is integral to making accurate Models.</p>
+</dd>
+<dt>Label</dt><dd><p>A label is the thing we’re predicting—the y variable in simple linear regression.
+If the features are the input of a function, the Label is the desired output.
+Expressed Mathematically, the ith label is calulated by using the ith
+feature vector.</p>
+<div class="math notranslate nohighlight">
+\[y(\vec x_i) = y_i\]</div>
+<p>Applying the function to all samples gives every label</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}y(X) = \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_n \end{bmatrix}\end{split}\]</div>
+</dd>
+<dt>Labeled Sample</dt><dd><p>A sample where the label, <span class="math notranslate nohighlight">\(y_i\)</span>, is known. Used to train the model
+since the relationship <span class="math notranslate nohighlight">\(y(\vec x_i) = y_i\)</span> is known.
+Label could be “spam” or “not spam” for email.</p>
+<p>Has {features, label}: <span class="math notranslate nohighlight">\((x_i, y_i)\)</span>.</p>
+</dd>
+<dt>Unlabeled Sample</dt><dd><p>A sample where the label, <span class="math notranslate nohighlight">\(y_i\)</span>, is not known. We would like to predict
+the Label.</p>
+<p>Has {features, ?}: <span class="math notranslate nohighlight">\((x_i, ?)\)</span>. Used for making predictions on new data.</p>
+</dd>
+<dt>Model</dt><dd><p>A model maps Samples to predicted Labels <span class="math notranslate nohighlight">\(\hat y_i\)</span>. The model is defined
+by internal parameters which are determined/learned by using Labeled Samples as
+Training Data. Parameters that must be supplied by the Programmer and are not learned
+by the model are called Hyperparameters.</p>
+</dd>
+<dt>Regression Model</dt><dd><p>A regression model predicts continuous (Real) values. For example, regression
+models make predictions that answer questions like the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>What is the value of a house in California?</p></li>
+<li><p>What is the probability a user clicks on an ad?</p></li>
+<li><p>How are Sales effected by Advertisement?</p></li>
+</ul>
+</div></blockquote>
+</dd>
+<dt>Classification Model</dt><dd><p>Predicts what class or category a case falls in. Classification
+is used when the class label is of data type <a class="reference external" href="https://stats.idre.ucla.edu/other/mult-pkg/whatstat/what-is-the-difference-between-categorical-ordinal-and-interval-variables/">Nominal or Ordinal</a>
+Classification is used for discrete values of labels (finite, or countably infinite values).</p>
+<p>When there are two classes/targets, the model is said to be a <a class="reference external" href="https://en.wikipedia.org/wiki/Binary_classification">Binary Classification Model</a>.
+When there are three or more classes a target can be classified as,
+the model is said to be a <a class="reference external" href="https://en.wikipedia.org/wiki/Multiclass_classification">Multiclass Classifcation Model</a>.
+Examples include:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Is this email spam or not spam?</p></li>
+<li><p>Is a tumor malignant or benign?</p></li>
+<li><p>What type of flower is the sample?</p></li>
+<li><p>Is a system healthy or not?</p></li>
+</ul>
+</div></blockquote>
+</dd>
+<dt>Parameter</dt><dd><p>pass</p>
+</dd>
+<dt>Hyperparameters</dt><dd><p>pass</p>
+</dd>
+</dl>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="linearregression.html" class="btn btn-neutral float-right" title="Linear Regression" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="statistics_basics.html" class="btn btn-neutral float-left" title="Basic Statistics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Timothy Pulliam
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

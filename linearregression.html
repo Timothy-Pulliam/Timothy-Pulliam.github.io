@@ -1,0 +1,308 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Linear Regression &mdash; Machine Learning Book  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="K Nearest Neighbors" href="knearestneighbors.html" />
+    <link rel="prev" title="Terminology" href="terminology.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Machine Learning Book
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Statistics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="statistics_basics.html">Basic Statistics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Machine Learning</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="terminology.html">Terminology</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Linear Regression</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#linear-regression-using-scipy">Linear Regression Using SciPy</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#residual-analysis-and-loss-functions">Residual Analysis and Loss Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#plotting-a-linear-regression">Plotting A Linear Regression</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="knearestneighbors.html">K Nearest Neighbors</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Machine Learning Book</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Linear Regression</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/linearregression.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="linear-regression">
+<h1>Linear Regression<a class="headerlink" href="#linear-regression" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="linear-regression-using-scipy">
+<h2>Linear Regression Using SciPy<a class="headerlink" href="#linear-regression-using-scipy" title="Permalink to this headline">¶</a></h2>
+<p>This computes a least-squares regression for two sets of measurements. L2Loss Minimization.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">r_value</span><span class="p">,</span> <span class="n">p_value</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Correlation coefficient R^2 = {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_value</span><span class="p">))</span>
+</pre></div>
+</div>
+<dl class="simple">
+<dt>slope</dt><dd><p>Also known as the Weight of the feature.</p>
+</dd>
+<dt>intercept</dt><dd><p>Also known as the bias.</p>
+</dd>
+<dt>r_value</dt><dd><p>correlation coefficient</p>
+</dd>
+<dt>p-value</dt><dd><p>two-sided p-value for a hypothesis test whose null hypothesis is that the slope is zero.</p>
+</dd>
+<dt>stderr</dt><dd><p>Standard error of the estimate</p>
+</dd>
+</dl>
+<p>This process can be generalized to other loss functions using gradient descent.</p>
+<div class="section" id="residual-analysis-and-loss-functions">
+<h3>Residual Analysis and Loss Functions<a class="headerlink" href="#residual-analysis-and-loss-functions" title="Permalink to this headline">¶</a></h3>
+<p>The difference between the observed value and the predicted value is called the
+<em>residual</em>. Minimizing the residual is equivalent to minimizing the error in our
+model for the observed values. The residual is expressed as</p>
+<p>Residual = Observed value - Predicted value</p>
+<div class="math notranslate nohighlight">
+\[e = y(x) - \hat y(x)\]</div>
+<p>For a multivariate sample with multiple features, we replace x with the
+feature vector of the ith sample, as usual</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}e_i = y(\vec x_i) - \hat y(\vec x_i)\\= y_i - \hat y_i\end{aligned}\end{align} \]</div>
+<p>This gives us the ith residual. Each sample has its own residual.
+When finding a line of best fit for the data, the residual has has the following
+properties</p>
+<ul class="simple">
+<li><p>The sum of residuals over the entire dataset is zero</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\sum_{i=1}^{n}e_i = 0\]</div>
+<ul class="simple">
+<li><p>Consequently, the mean of residuals is therefore zero</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\bar e = 0\]</div>
+<p>A <a class="reference external" href="https://blog.algorithmia.com/introduction-to-loss-functions/">loss function</a>
+calculates the error in our prediction by calculating
+the difference between our predicted Label and the true Label. The
+concept of a loss function is integral to Machine Learning since minimizing
+loss is synonymous with our model learning the ideal parameters.</p>
+</div>
+</div>
+<div class="section" id="plotting-a-linear-regression">
+<h2>Plotting A Linear Regression<a class="headerlink" href="#plotting-a-linear-regression" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+
+<span class="c1"># Load Data</span>
+<span class="n">iris_dataset</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+<span class="n">sepal_length</span><span class="p">,</span> <span class="n">petal_length</span> <span class="o">=</span> <span class="n">iris_dataset</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">iris_dataset</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="c1"># Simple Regression Line</span>
+<span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">r_value</span><span class="p">,</span> <span class="n">p_value</span><span class="p">,</span> <span class="n">std_err</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">sepal_length</span><span class="p">,</span> <span class="n">petal_length</span><span class="p">)</span>
+<span class="n">regression_line</span> <span class="o">=</span> <span class="n">intercept</span> <span class="o">+</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">sepal_length</span>
+
+<span class="c1"># The Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sepal_length</span><span class="p">,</span> <span class="n">petal_length</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;magenta&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sepal_length</span><span class="p">,</span> <span class="n">regression_line</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;sepal length (cm)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;petal length (cm)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Sepal Length vs Petal Length&#39;</span><span class="p">)</span>
+<span class="n">textstr</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span>
+    <span class="sa">r</span><span class="s1">&#39;correlation (r) = {:.4f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r_value</span><span class="p">),</span>
+    <span class="sa">r</span><span class="s1">&#39;standard error = {:.4f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">std_err</span><span class="p">)))</span>
+<span class="n">props</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;wheat&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="n">textstr</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="n">props</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="_images/simple_linear_regression.png" src="_images/simple_linear_regression.png" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="knearestneighbors.html" class="btn btn-neutral float-right" title="K Nearest Neighbors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="terminology.html" class="btn btn-neutral float-left" title="Terminology" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Timothy Pulliam
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
